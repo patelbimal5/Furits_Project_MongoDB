@@ -45,6 +45,17 @@ FruitModel.insertMany([kiwi, orange, banana], function(err){
   }
 });
 
+// Reading data from database. through app.js
+
+FruitModel.find(function(err, fruits){
+  if(err){
+    console.log(err);
+  }else{
+    console.log(fruits);
+  }
+});
+
+
 //adding single data through save
 //fruit.save();
 
