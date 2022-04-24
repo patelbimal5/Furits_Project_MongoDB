@@ -51,7 +51,8 @@ FruitModel.find(function(err, fruits){
   if(err){
     console.log(err);
   }else{
-    console.log(fruits);
+    //console.log(fruits);
+    mongoose.connection.close(); // clsoing connection so we dont have to close manually from shell.
     // or if we want to run query and we want to see only fruits name only, code is below using forEach command.
     fruits.forEach(function(fruit){
       console.log(fruit.name);
