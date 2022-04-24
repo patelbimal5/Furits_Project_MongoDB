@@ -1,3 +1,76 @@
+// // ---------------- mongoose code below ---------------------
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/fruitsDB');
+
+const fruitSchema = new mongoose.Schema ({
+  name: String,
+  rating: Number,
+  review: String
+});
+
+// creating model
+const FruitModel = mongoose.model("Fruit", fruitSchema);
+
+const fruit = new FruitModel ({
+  name: "Apple",
+  rating: 7,
+  review: "Preety solid as a fruit."
+});
+
+const kiwi = new FruitModel({
+  name: "Kiwi",
+  rating: 3,
+  review: "Best fruit"
+});
+
+const orange = new FruitModel({
+  name: "Orange",
+  rating: 8,
+  review: "Best source of Vitamin C"
+});
+
+const banana = new FruitModel({
+  name: "Banana",
+  rating: 9,
+  review: "Minions's fruit"
+});
+
+//for adding multiple data
+FruitModel.insertMany([kiwi, orange, banana], function(err){
+  if (err){
+    console.log(err);
+  }else{
+    console.log("Successfully added 3 more fruits in fruitsDB");
+  }
+});
+
+//adding single data through save
+//fruit.save();
+
+// new collection of people through mongoose
+
+// const mongoose = require('mongoose');
+//
+// mongoose.connect('mongodb://localhost:27017/peopleDB');
+//
+// const peopleSchema = new mongoose.Schema ({
+//   name: String,
+//   age: Number,
+// });
+//
+// // creating model
+// const peopleModel = mongoose.model("People", peopleSchema);
+//
+// const people = new peopleModel ({
+//   name: "Bimal Patel",
+//   rating: 27
+// });
+//
+// people.save();
+
+
+// ------------------------ mongo db code below ----------------------
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
