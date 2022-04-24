@@ -5,7 +5,12 @@ mongoose.connect('mongodb://localhost:27017/fruitsDB');
 
 const fruitSchema = new mongoose.Schema ({
   name: String,
-  rating: Number,
+  rating: Number, // without validation
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10
+  },// entering validation for rating.
   review: String
 });
 
