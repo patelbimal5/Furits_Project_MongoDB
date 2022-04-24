@@ -50,8 +50,15 @@ FruitModel.insertMany([kiwi, orange, banana], function(err){
   }
 });
 
-// Reading data from database. through app.js
+// Updating data command.
+ FruitModel.updateOne({_id: "6265d6e93fe393711e85a9bd"}, {name: "BANANAAAA"}, function(err){
+   if(err){
+     console.log(err);
+   }else{
+     console.log("Updated successfully");  }
+ });
 
+// Reading data from database. through app.js
 FruitModel.find(function(err, fruits){
   if(err){
     console.log(err);
