@@ -52,6 +52,10 @@ FruitModel.find(function(err, fruits){
     console.log(err);
   }else{
     console.log(fruits);
+    // or if we want to run query and we want to see only fruits name only, code is below using forEach command.
+    fruits.forEach(function(fruit){
+      console.log(fruit.name);
+    });
   }
 });
 
